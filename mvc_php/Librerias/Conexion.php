@@ -8,13 +8,13 @@ class Conexion {
 
         $variables = Variables::Instancia();
 
-        $host = $variables->Obtener("Host");
+        $host = $variables->Obtener("Servidor");
         $base = $variables->Obtener("BaseDatos");
         $usuario = $variables->Obtener("Usuario");
         $contrasena = $variables->Obtener("Contrasena");
 
         $conexion = ["Database" => $base, "UID" => $usuario, "PWD" => $contrasena];
-        // $conexion = mysqli_connect($host, $ususario, $contrasena, $baseF);
+        // $conexion = new mysqli($servidor, $usuario, $contrasena, $base);
         return sqlsrv_connect($host, $conexion); 
     }
 
