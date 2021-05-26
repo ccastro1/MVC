@@ -3,7 +3,7 @@
 $variables = Variables::Instancia();
 
 /* Nombre del sitio */
-$sitio = "Theos_php";
+$sitio = "Sitio";
 
 /* Titulo del sitio */
 $variables->Asignar("Titulo", $sitio);
@@ -28,10 +28,10 @@ $variables->Asignar("JQuery", "/$sitio/Contenido/JQuery.js");
 $variables->Asignar("Codigo", "/$sitio/Contenido/Codigo.js");
 
 /* Configucarión de base de datos */
-$variables->Asignar("Host", "10.18.226.135\SQLSALUD");
-$variables->Asignar("Usuario", "theos");
-$variables->Asignar("Contrasena", "Jaguar12345");
-$variables->Asignar("BaseDatos", "SIAP");
+$variables->Asignar("Host", "ip");
+$variables->Asignar("Usuario", "");
+$variables->Asignar("Contrasena", "");
+$variables->Asignar("BaseDatos", "");
 
 /* COnfiguración de paginación */
 $variables->Asignar("RegistroPagina", "20");
