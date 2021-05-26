@@ -31,6 +31,7 @@ class ControlSesion {
         $variables = Variables::Instancia();
         session_destroy();
         header("Location: " . $variables->Obtener("Servidor") . "/Sesion");
+        exit();
     }
 
 }
