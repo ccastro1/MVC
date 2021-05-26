@@ -28,7 +28,7 @@ $variables->Asignar("JQuery", "/$sitio/Contenido/JQuery.js");
 $variables->Asignar("Codigo", "/$sitio/Contenido/Codigo.js");
 
 /* Configucarión de base de datos */
-$variables->Asignar("Host", "ip");
+$variables->Asignar("Servidor", "ip");
 $variables->Asignar("Usuario", "");
 $variables->Asignar("Contrasena", "");
 $variables->Asignar("BaseDatos", "");
