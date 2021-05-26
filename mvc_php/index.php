@@ -1,6 +1,6 @@
 <?php
 
-session_name("Theos");
+session_name("Sitio");
 session_start();
 
 require_once 'Librerias/Variables.php';
