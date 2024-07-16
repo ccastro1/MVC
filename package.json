@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "gulp dev"
   },
-  "author": "Juan De la torre @codigoconjuan",
+  "author": "Candelario Castro Manjarrez",
   "license": "ISC",
   "devDependencies": {
     "gulp-concat": "^2.6.1",

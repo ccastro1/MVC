@@ -1,1 +1,8 @@
-@import "Base/Variables.scss";
+@import "base/normalize";
+@import "base/variables";
+@import "base/mixins";
+@import "base/globales";
+
+
+// Utilidades
+@import "utilidades/formulario";
