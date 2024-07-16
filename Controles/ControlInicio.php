@@ -5,10 +5,10 @@ class ControlInicio
 {
     function Inicio()
     {
-        $funcion = new Inicio();
-        $datos = $funcion->Lista();
+        /*$funcion = new Inicio();
+        $datos = $funcion->Lista();*/
 
-        Funciones::Vista("Inicio", "Inicio", $datos);
+        Funciones::Vista("Inicio", "Inicio");
     }
 
     function Lista()
