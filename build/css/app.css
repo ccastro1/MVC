@@ -325,30 +325,143 @@ body {
   background-color: #e8ebee;
 }
 
-.contenedor {
-  width: min(1024px, 90%);
+.contenedor,
+.contenedor-telefono,
+.contenedor-tablet,
+.contenedor-extra {
   margin: auto;
   padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contenedor {
+  width: min(1024px, 90%);
+}
+
+.contenedor-telefono {
+  width: min(468px, 90%);
+}
+
+.contenedor-tablet {
+  width: min(760px, 90%);
+}
+
+.contenedor-extra {
+  width: min(1200px, 90%);
+}
+
+.columnas-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 5px;
+}
+@media (max-width: 760px) {
+  .columnas-2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.columnas-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 5px;
+}
+@media (max-width: 760px) {
+  .columnas-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.columnas-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 5px;
+}
+@media (max-width: 760px) {
+  .columnas-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #848484;
 }
 
 .carta {
   background: #fff;
-  border-radius: 4px;
+  border-radius: 7px;
+}
+
+.carta-encabezado {
+  background-color: #056acf;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+}
+.carta-encabezado .encabezado-titulo {
+  padding: 15px;
+  color: #fff;
+}
+
+.carta-cuerpo {
+  padding: 20px;
+}
+
+.carta-acciones {
+  display: flex;
+  justify-content: end;
+  position: relative;
+}
+.carta-acciones button {
+  color: #848484;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 5px;
+  background-color: transparent;
+  border: none;
+}
+
+.menu-acciones {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  background-color: #fff;
+  border: solid 1px #e8ebee;
+  top: 27px;
+  box-shadow: 1px 1px 15px gray;
+}
+.menu-acciones a {
+  padding: 7px 15px;
+}
+.menu-acciones a:hover {
+  background-color: #e8ebee;
+}
+
+.menu-acciones.visible {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .formulario {
-  padding: 15px;
   display: block;
   position: relative;
 }
 .formulario label {
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
 .contenedor-campos,
 .contenedor-botones {
-  padding: 15px;
+  padding: 15px 10px;
 }
 
 .contenedor-botones {
@@ -362,8 +475,8 @@ body {
   width: 100%;
   height: 35px;
   padding: 10px;
-  border: solid 1px silver;
-  border-radius: 7px 0 0 7px;
+  border: solid 1px #e8ebee;
+  border-radius: 7px;
   outline: none;
 }
 .campos:focus {
@@ -373,36 +486,86 @@ body {
 .etiqueta {
   display: flex;
 }
+.etiqueta .campos {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
 .etiqueta span {
+  min-width: 40px;
+  display: flex;
+  justify-content: center;
   background-color: #056acf;
   color: #fff;
   padding: 8px;
   margin-left: -4px;
-  border-radius: 0 7px 7px 0;
+  border-radius: 7px 0 0 7px;
+}
+
+.boton {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .boton-azul {
-  border: none;
   background-color: #056acf;
-  padding: 10px;
-  cursor: pointer;
   color: #fff;
-  border-radius: 5px;
 }
 .boton-azul:hover {
   background-color: #045db6;
-  box-shadow: 1px 1px 10px #e8ebee;
+}
+
+.boton-verde {
+  background-color: #08b933;
+  color: #fff;
+}
+.boton-verde:hover {
+  background-color: #07a12c;
+}
+
+.boton-rojo {
+  background-color: #e30f0f;
+  color: #fff;
+}
+.boton-rojo:hover {
+  background-color: #cb0d0d;
 }
 
 .boton-gris {
-  border: none;
   background-color: #e8ebee;
-  padding: 10px;
-  cursor: pointer;
   color: #000;
-  border-radius: 5px;
 }
 .boton-gris:hover {
   background-color: #d9dee3;
-  box-shadow: 1px 1px 10px #e8ebee;
+}
+
+.circular {
+  border-radius: 20px;
+}
+
+.contenedor-tabla {
+  overflow: auto;
+}
+
+.tabla {
+  width: 100%;
+  padding: 10px;
+  border-collapse: collapse;
+  /*tr:nth-child(odd) {
+    background-color: $gris;
+  }*/
+}
+.tabla tr {
+  border-bottom: solid 1px #e8ebee;
+}
+.tabla th,
+.tabla td {
+  text-align: center;
+  padding: 12px;
+}
+.tabla th {
+  background-color: #9fabb8;
+  color: #fff;
+  border: solid 1px #fff;
 }

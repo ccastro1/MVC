@@ -13,8 +13,9 @@
 </head>
 
 <body>
-    <?php include ($rutaVista); ?>
+    <?php include $rutaVista; ?>
     <script src="build/js/Jquery.min.js"></script>
+    <script src="build/js/CodigoGeneral.js"></script>
     <script src="build/js/Codigo<?= $accion ?>.js"></script>
 </body>
 

@@ -1,0 +1,29 @@
+.contenedor-tabla {
+  overflow: auto;
+}
+
+.tabla {
+  width: 100%;
+  padding: 10px;
+  border-collapse: collapse;
+
+  tr {
+    border-bottom: solid 1px $gris;
+  }
+
+  /*tr:nth-child(odd) {
+    background-color: $gris;
+  }*/
+
+  th,
+  td {
+    text-align: center;
+    padding: 12px;
+  }
+
+  th {
+    background-color: darken($gris, 25%);
+    color: $blanco;
+    border: solid 1px $blanco;
+  }
+}

@@ -1,0 +1,59 @@
+.carta {
+  background: $blanco;
+  border-radius: 7px;
+}
+
+.carta-encabezado {
+  background-color: $azul;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+
+  .encabezado-titulo {
+    padding: 15px;
+    color: $blanco;
+  }
+}
+
+.carta-cuerpo {
+  padding: 20px;
+}
+
+.carta-acciones {
+  display: flex;
+  justify-content: end;
+  position: relative;
+
+  button {
+    color: $plateado;
+    cursor: pointer;
+    margin-right: 5px;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+  }
+}
+
+.menu-acciones {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  background-color: $blanco;
+  border: solid 1px $gris;
+  top: 27px;
+  box-shadow: 1px 1px 15px lighten($negro, 50%);
+
+  a {
+    padding: 7px 15px;
+
+    &:hover {
+      background-color: $gris;
+    }
+  }
+}
+
+.menu-acciones.visible {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

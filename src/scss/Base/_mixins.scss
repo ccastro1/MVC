@@ -1,13 +1,25 @@
-@mixin boton($fondo, $color) {
-    border: none;
-    background-color: $fondo;
-    padding: 10px;
-    cursor: pointer;
-    color: $color;
-    border-radius: 5px;
+@mixin columnas($total, $separacion) {
+  display: grid;
+  grid-template-columns: repeat($total, 1fr);
+  column-gap: $separacion;
 
-    &:hover {
-        background-color: darken($fondo, 5%);
-        box-shadow: 1px 1px 10px $gris;
-    }
+  @media (max-width: #{$tablet}) {
+    grid-template-columns: 1fr;
+  }
+}
+
+@mixin boton {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+@mixin boton-color($fondo, $color) {
+  background-color: $fondo;
+  color: $color;
+
+  &:hover {
+    background-color: darken($fondo, 5%);
+  }
 }
