@@ -462,6 +462,7 @@ a {
 .contenedor-campos,
 .contenedor-botones {
   padding: 15px 10px;
+  position: relative;
 }
 
 .contenedor-botones {
@@ -470,7 +471,7 @@ a {
   gap: 5px;
 }
 
-.campos {
+.textos {
   display: block;
   width: 100%;
   height: 35px;
@@ -479,18 +480,59 @@ a {
   border-radius: 7px;
   outline: none;
 }
-.campos:focus {
+.textos:focus {
   border-color: #056acf;
+}
+
+.textos:not([id=txt_usuario]):not([type=email]):not([type=password]) {
+  text-transform: uppercase;
+}
+
+span.error,
+span.correcto {
+  display: none;
+  position: absolute;
+  right: 16px;
+  top: 46px;
+}
+
+.etiqueta span.error,
+.etiqueta span.correcto {
+  right: 5px;
+  top: 9px;
+}
+
+span.error {
+  color: #e30f0f;
+}
+
+span.correcto {
+  color: #08b933;
+}
+
+.textos:user-invalid {
+  border-color: #e30f0f;
+}
+.textos:user-invalid + span.error {
+  display: block;
+}
+
+.textos:user-valid {
+  border-color: #08b933;
+}
+.textos:user-valid + span.error + span.correcto {
+  display: block;
 }
 
 .etiqueta {
   display: flex;
+  position: relative;
 }
-.etiqueta .campos {
+.etiqueta .textos {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-.etiqueta span {
+.etiqueta span:first-child {
   min-width: 40px;
   display: flex;
   justify-content: center;
@@ -499,6 +541,10 @@ a {
   padding: 8px;
   margin-left: -4px;
   border-radius: 7px 0 0 7px;
+}
+
+.requerido {
+  color: #e30f0f;
 }
 
 .boton {

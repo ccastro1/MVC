@@ -7,47 +7,62 @@
         </div>
         <div class="carta-cuerpo">
             <form class="formulario" method="post">
+                <span class="requerido">* Campos requeridos</span>
                 <div class="contenedor-campos">
-                    <label for="txt_usuario">Usuario</label>
+                    <label for="txt_usuario">Usuario <span class="requerido">*</span></label>
                     <div class="etiqueta">
                         <span><i class="fa-regular fa-user"></i></span>
-                        <input type="text" id="txt_usuario" class="campos" name="usuario" required />
+                        <input type="text" id="txt_usuario" class="textos" name="usuario" required />
+                        <span class="error"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <span class="correcto"><i class="fa-regular fa-circle-check"></i></span>
                     </div>
                 </div>
                 <div class="contenedor-campos">
-                    <label for="txt_contrasena">Contraseña</label>
+                    <label for="txt_contrasena">Contraseña <span class="requerido">*</span></label>
                     <div class="etiqueta">
                         <span><i class="fa-solid fa-lock"></i></span>
-                        <input type="text" id="txt_contrasena" class="campos" name="contrasena" required />
+                        <input type="password" id="txt_contrasena" class="textos" name="contrasena" required />
+                        <span class="error"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <span class="correcto"><i class="fa-regular fa-circle-check"></i></span>
                     </div>
                 </div>
                 <div class="contenedor-campos">
-                    <label for="txt_nombre">Nombre</label>
-                    <input type="text" id="txt_nombre" class="campos" name="nombre" required />
+                    <label for="txt_nombre">Nombre <span class="requerido">*</span></label>
+                    <input type="text" id="txt_nombre" class="textos" name="nombre" required />
+                    <span class="error"><i class="fa-regular fa-circle-xmark"></i></span>
+                    <span class="correcto"><i class="fa-regular fa-circle-check"></i></span>
                 </div>
                 <div class="columnas-2">
                     <div class="contenedor-campos">
-                        <label for="txt_paterno">Paterno</label>
-                        <input type="text" id="txt_paterno" class="campos" name="paterno" required />
+                        <label for="txt_paterno">Paterno <span class="requerido">*</span></label>
+                        <input type="text" id="txt_paterno" class="textos" name="paterno" required />
+                        <span class="error"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <span class="correcto"><i class="fa-regular fa-circle-check"></i></span>
                     </div>
                     <div class="contenedor-campos">
-                        <label for="txt_materno">Materno</label>
-                        <input type="text" id="txt_materno" class="campos" name="materno" required />
+                        <label for="txt_materno">Materno <span class="requerido">*</span></label>
+                        <input type="text" id="txt_materno" class="textos" name="materno" required />
+                        <span class="error"><i class="fa-regular fa-circle-xmark"></i></span>
+                        <span class="correcto"><i class="fa-regular fa-circle-check"></i></span>
                     </div>
                 </div>
                 <div class="columnas-2">
                     <div class="contenedor-campos">
-                        <label for="txt_correo">Correo</label>
+                        <label for="txt_correo">Correo <span class="requerido">*</span></label>
                         <div class="etiqueta">
                             <span>@</span>
-                            <input type="email" id="txt_correo" class="campos" name="correo" required />
+                            <input type="email" id="txt_correo" class="textos" name="correo" required />
+                            <span class="error"><i class="fa-regular fa-circle-xmark"></i></span>
+                            <span class="correcto"><i class="fa-regular fa-circle-check"></i></span>
                         </div>
                     </div>
                     <div class="contenedor-campos">
-                        <label for="txt_telefono">Teléfono</label>
+                        <label for="txt_telefono">Teléfono <span class="requerido">*</span></label>
                         <div class="etiqueta">
                             <span><i class="fa-solid fa-phone"></i></span>
-                            <input type="email" id="txt_telefono" class="campos" name="telefono" required />
+                            <input type="text" pattern="[0-9]{3}[0-9]{3}-[0-9]{2}-[0-9]{2}" id="txt_telefono" class="textos" name="telefono" required />
+                            <span class="error"><i class="fa-regular fa-circle-xmark"></i></span>
+                            <span class="correcto"><i class="fa-regular fa-circle-check"></i></span>
                         </div>
                     </div>
                 </div>
@@ -92,7 +107,7 @@
                         <td>cande131@hotmail.com</td>
                         <td>(614)229-58-54</td>
                         <td>
-                            <button type="button" class="boton boton-verde circular">Editar</button>
+                            <button type="button" class="boton boton-gris circular">Editar</button>
                             <button type="button" class="boton boton-rojo circular">Borrar</button>
                         </td>
                     </tr>

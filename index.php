@@ -10,12 +10,13 @@ require_once "./Librerias/Funciones.php";
 $ruta = explode("/", $_SERVER["REQUEST_URI"]);
 
 $control = $ruta[1];
-$control = (!empty($control)) ? "Control" . $control : "ControlInicio";
+$control = (!empty($control)) ? "Control$control" : "ControlInicio";
 $accion = (count($ruta) > 2) ? $ruta[2] : "Inicio";
 
 $rutaControl = "Controles/$control.php";
 
-if (!file_exists($rutaControl)) die("Error 404. Controller not found");
+if (!file_exists($rutaControl))
+    die("Error 404. Controller not found");
 
 require_once $rutaControl;
 $funcion = new $control;
