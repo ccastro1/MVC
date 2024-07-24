@@ -11,10 +11,6 @@
     border-bottom: solid 1px $gris;
   }
 
-  /*tr:nth-child(odd) {
-    background-color: $gris;
-  }*/
-
   th,
   td {
     text-align: center;
@@ -22,8 +18,21 @@
   }
 
   th {
-    background-color: darken($gris, 25%);
+    color: darken($azul, 15);
+  }
+
+  .estatus {
+    padding: 5px;
+    border-radius: 20px;
     color: $blanco;
-    border: solid 1px $blanco;
+    text-align: center;
+  }
+
+  .activo {
+    background-color: $verde;
+  }
+
+  .inactivo {
+    background-color: $rojo;
   }
 }

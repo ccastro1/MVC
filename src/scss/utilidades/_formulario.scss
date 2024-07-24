@@ -120,7 +120,7 @@ span.correcto {
 }
 
 .boton-gris {
-  @include boton-color($gris, #000);
+  @include boton-color(darken($gris, 50%), $blanco);
 }
 
 .circular {

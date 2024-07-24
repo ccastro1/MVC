@@ -13,7 +13,28 @@
 </head>
 
 <body>
-    <?php include $rutaVista; ?>
+    <header>
+        <nav class="barra">
+            <div></div>
+        </nav>
+    </header>
+    <main>
+        <div class="barra-lateral">
+            <ul class="menu">
+                <li><a href="#">Sección 1</a></li>
+                <li><a href="#">Sección 2</a></li>
+                <li><a href="#">Sección 3</a>
+                    <ul class="sub-menu">
+                        <li><a href="#">Sección 3.1</a></li>
+                        <li><a href="#">Sección 3.2</a></li>
+                        <li><a href="#">Sección 3.3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Sección 4</a></li>
+            </ul>
+        </div>
+        <?php include $rutaVista; ?>
+    </main>
     <script src="build/js/Jquery.min.js"></script>
     <script src="build/js/CodigoGeneral.js"></script>
     <script src="build/js/Codigo<?= $accion ?>.js"></script>

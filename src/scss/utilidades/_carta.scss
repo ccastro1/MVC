@@ -39,11 +39,15 @@
   flex-direction: column;
   background-color: $blanco;
   border: solid 1px $gris;
+  border-radius: 7px;
   top: 27px;
-  box-shadow: 1px 1px 15px lighten($negro, 50%);
+  box-shadow: 0 0 5px lighten($negro, 50%);
+  padding-top: 10px;
+  padding-bottom: 10px;
 
   a {
     padding: 7px 15px;
+    color: darken($azul, 15);
 
     &:hover {
       background-color: $gris;

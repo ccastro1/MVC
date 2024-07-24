@@ -22,4 +22,15 @@
   &:hover {
     background-color: darken($fondo, 5%);
   }
+
+  &.contorno {
+    background-color: $blanco;
+    border: solid 1px $fondo;
+    color: $negro;
+
+    &:hover {
+      background-color: $fondo;
+      color: $color;
+    }
+  }
 }

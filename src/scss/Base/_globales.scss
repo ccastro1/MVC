@@ -27,20 +27,24 @@ body {
   gap: 15px;
 }
 
+main {
+  display: flex;
+}
+
 .contenedor {
   width: min($pc, 90%);
 }
 
 .contenedor-telefono {
-  width: min($telefono, 90%);
+  width: min($telefono, calc(90% - 200px));
 }
 
 .contenedor-tablet {
-  width: min($tablet, 90%);
+  width: min($tablet, calc(90% - 200px));
 }
 
 .contenedor-extra {
-  width: min($extra, 90%);
+  width: min($extra, calc(90% - 200px));
 }
 
 .columnas-2 {
@@ -61,5 +65,4 @@ ul {
 
 a {
   text-decoration: none;
-  color: $plateado;
 }

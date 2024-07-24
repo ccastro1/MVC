@@ -1,4 +1,4 @@
-<main class="contenedor-tablet">
+<div class="contenedor-tablet">
     <div class="carta">
         <div class="carta-encabezado">
             <div class="encabezado-titulo">
@@ -67,14 +67,12 @@
                     </div>
                 </div>
                 <div class="contenedor-botones">
-                    <button type="button" class="boton boton-gris">Cancelar</button>
+                    <button type="button" class="boton boton-gris contorno">Cancelar</button>
                     <button type="submit" class="boton boton-azul">Guardar</button>
                 </div>
             </form>
         </div>
     </div>
-</main>
-<div class="contenedor">
     <div class="carta">
         <div class="carta-cuerpo">
             <div class="carta-acciones">
@@ -90,39 +88,41 @@
             </div>
             <div class="contenedor-tabla">
                 <table class="tabla">
-                    <tr>
-                        <th>Usuario</th>
-                        <th>Nombre</th>
-                        <th>Paterno</th>
-                        <th>Materno</th>
-                        <th>Correo</th>
-                        <th>Teléfono</th>
-                        <th>Acciones</th>
-                    </tr>
-                    <tr>
-                        <td>ccastro</td>
-                        <td>Candelario</td>
-                        <td>Castro</td>
-                        <td>Manjarrez</td>
-                        <td>cande131@hotmail.com</td>
-                        <td>(614)229-58-54</td>
-                        <td>
-                            <button type="button" class="boton boton-gris circular">Editar</button>
-                            <button type="button" class="boton boton-rojo circular">Borrar</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>ccastro</td>
-                        <td>Candelario</td>
-                        <td>Castro</td>
-                        <td>Manjarrez</td>
-                        <td>cande131@hotmail.com</td>
-                        <td>(614)229-58-54</td>
-                        <td>
-                            <button type="button" class="boton boton-gris circular">Editar</button>
-                            <button type="button" class="boton boton-rojo circular">Borrar</button>
-                        </td>
-                    </tr>
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Nombre</th>
+                            <th>Paterno</th>
+                            <th>Materno</th>
+                            <th>Correo</th>
+                            <th>Teléfono</th>
+                            <th>Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ccastro</td>
+                            <td>Candelario</td>
+                            <td>Castro</td>
+                            <td>Manjarrez</td>
+                            <td>cande131@hotmail.com</td>
+                            <td>(614)229-58-54</td>
+                            <td>
+                                <span class="estatus activo">Activo</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>ccastro</td>
+                            <td>Candelario</td>
+                            <td>Castro</td>
+                            <td>Manjarrez</td>
+                            <td>cande131@hotmail.com</td>
+                            <td>(614)229-58-54</td>
+                            <td>
+                                <span class="estatus inactivo">Inactivo</span>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
