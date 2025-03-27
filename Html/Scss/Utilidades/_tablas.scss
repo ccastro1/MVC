@@ -1,0 +1,46 @@
+@use "../Base/variables" as *;
+@use "../Base/mixins" as *;
+@use "sass:color" as *;
+
+.tabla {
+    display: table;
+    border-collapse: collapse;
+    width: 100%;
+
+    th,
+    td {
+        padding: 12px;
+        border: solid 1px $gris;
+    }
+
+    th {
+        background-color: $plata;
+    }
+
+    td {
+        text-align: center;
+    }
+}
+
+.alerta {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+
+    &.verde {
+        @include alerta($verde);
+    }
+
+    &.rojo {
+        @include alerta($rojo);
+    }
+
+    &.azul {
+        @include alerta($azul);
+    }
+
+    &.negro {
+        @include alerta($negro);
+    }
+}

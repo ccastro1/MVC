@@ -1,0 +1,190 @@
+@use "variables" as *;
+@use "sass:color" as *;
+
+html {
+    font-family: $fuente;
+    font-size: 16px;
+    color: $negro;
+}
+
+body {
+    background-color: $gris;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.5;
+}
+
+ul {
+    list-style: none;
+}
+
+a,
+a:active,
+a:visited {
+    color: $negro;
+    text-decoration: none;
+}
+
+.contenedor-sesion {
+    width: $telefono;
+    height: 100vh;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.contenedor {
+    display: flex;
+    position: relative;
+    gap: 15px;
+    height: cal(100vh -200px);
+    margin-bottom: 5px;
+}
+
+.menu {
+    width: 200px;
+    padding: 20px;
+    background-color: $plata;
+    box-shadow: $sombra;
+    overflow: auto;
+
+    li.sitio {
+        margin-bottom: 20px;
+    }
+
+    li {
+        display: block;
+        width: 100%;
+        padding: 10px;
+
+        &.seccion {
+            border-bottom: solid 2px $gris;
+        }
+
+        &.link {
+            margin-left: 10px;
+        }
+
+        a {
+            display: block;
+            width: 100%;
+
+            &:hover {
+                opacity: .7;
+            }
+        }
+    }
+}
+
+.contenido {
+    margin-top: 10px;
+    width: calc(99% - 200px);
+}
+
+.contenido-telefono {
+    width: $telefono;
+    margin: auto;
+}
+
+.contenido-tablet {
+    width: $tablet;
+    margin: auto;
+}
+
+.contenido-pc {
+    width: $pc;
+    margin: auto;
+}
+
+.contenido-xl {
+    width: $xl;
+    margin: auto;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 5px;
+}
+
+.busqueda {
+    width: min($telefono, 90%);
+
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 100%;
+        background-color: $azul;
+        color: $blanco;
+        width: 35px;
+        border: solid 1px adjust($color: $negro, $lightness: 40%);
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        cursor: pointer;
+    }
+}
+
+.menu-usuario {
+    display: flex;
+    gap: 7px;
+}
+
+.notificaciones {
+    position: relative;
+    color: $azul;
+    padding-right: 7px;
+
+    .total {
+        position: absolute;
+        top: -5px;
+        right: 2px;
+        font-size: 12px;
+        font-weight: bold;
+        color: $rojo;
+    }
+}
+
+.alinear-derecha {
+    display: flex;
+    justify-content: end;
+}
+
+.columnas-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.columnas-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.columnas-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.pie {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background-color: $negro;
+    color: $blanco;
+    padding: 7px;
+}

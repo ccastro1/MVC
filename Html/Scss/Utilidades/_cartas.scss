@@ -1,0 +1,36 @@
+@use "../Base/variables" as *;
+@use "sass:color" as *;
+
+.carta {
+    display: block;
+    min-width: $telefono;
+    background-color: $blanco;
+    border-radius: 5px;
+    box-shadow: $sombra;
+}
+
+.carta-encabezado {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px $gris;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.carta-encabezado,
+.carta-cuerpo,
+.carta-pie {
+    padding: 15px;
+}
+
+.carta-pie {
+    border-top: solid 1px $gris;
+}
+
+.carta-menu {
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: $sombra;
+    }
+}

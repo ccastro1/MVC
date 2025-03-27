@@ -1,28 +1,30 @@
 <?php
+session_start(["Portal"]);
 
-require_once "./Librerias/Instancia.php";
-require_once "./Librerias/Configuracion.php";
-require_once "./Librerias/Funciones.php";
+require_once "Librerias/Funciones.php";
 
-//$control = filter_input(INPUT_GET, "control");
-//$accion = filter_input(INPUT_GET, "accion");
+$control = filter_input(INPUT_GET, "control");
+$accion = filter_input(INPUT_GET, "accion");
 
-$ruta = explode("/", $_SERVER["REQUEST_URI"]);
+if (strlen($control) <= 0)
+    $control = CONTROL;
 
-$control = $ruta[1];
-$control = (!empty($control)) ? "Control$control" : "ControlInicio";
-$accion = (count($ruta) > 2) ? $ruta[2] : "Inicio";
+if (strlen($accion) <= 0)
+    $accion = ACCION;
 
-$rutaControl = "Controles/$control.php";
+$controlador = "Control$control";
+$rutaControl = "Controles/$controlador.php";
 
-if (!file_exists($rutaControl))
-    die("Error 404. Controller not found");
+if (!is_file($rutaControl))
+    die("HTTP/1.1 404 Not Found");
 
 require_once $rutaControl;
-$funcion = new $control;
 
-if (!method_exists($funcion, $accion)) {
-    die("Error 404. Action not found");
-}
+if (!class_exists($controlador))
+    die("HTTP/1.1 404 Not Found");
 
-$funcion->$accion();
+if (!method_exists($controlador, $accion))
+    die("HTTP/1.1 404 Not Found");
+
+$aplicacion = new $controlador();
+$aplicacion->$accion();

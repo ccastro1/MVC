@@ -1,24 +1,17 @@
-const { src, dest, watch, parallel } = require("gulp");
-const sass = require("gulp-sass")(require("sass"));
+import { task, src, dest, watch } from "gulp";
+import * as dartSass from 'sass';
+import gulpSass from "gulp-sass";
+
+const sass = gulpSass(dartSass);
 
 function css(done) {
-    src("src/scss/**/*.scss")
+    src("./Html/Scss/**/*.scss")
         .pipe(sass())
-        .pipe(dest("build/css"));
-
+        .pipe(dest("./Html/Css"));
     done();
 }
 
-function js(done) {
-    src("src/js/*.js")
-        .pipe(dest("build/js"));
+task("dev", done => {
+    watch("./Html/Scss/**/*.scss", css);
     done();
-}
-
-function dev(done) {
-    watch("src/scss/**/*.scss", css);
-    watch("src/js/*.js", js);
-    done();
-}
-
-exports.dev = parallel(dev, js);
+});

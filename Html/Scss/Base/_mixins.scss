@@ -1,0 +1,28 @@
+@use "variables" as *;
+@use "sass:color" as *;
+
+@mixin boton($fondo, $color) {
+    padding: 7px;
+    border: solid 1px $fondo;
+    border-radius: 4px;
+    background-color: $fondo;
+    color: $color;
+    box-shadow: $sombra;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .8;
+    }
+
+    &.contorno {
+        background-color: $color;
+        color: $fondo;
+    }
+}
+
+@mixin alerta($colorLetra) {
+    border-left: solid 10px adjust($color: $colorLetra, $blackness: 25%);
+    background-color: adjust($color: $colorLetra, $lightness: 25%);
+    color: $blanco;
+    margin-bottom: 2px;
+}

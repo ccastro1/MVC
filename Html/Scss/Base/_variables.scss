@@ -1,0 +1,26 @@
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-display: block;
+    src: url("../PlusJakartaSans-VariableFont_wght.ttf") format("truetype");
+}
+
+$fuente: "Plus Jakarta Sans";
+$sombra: 1px 1px 5px rgba(0, 0, 0, .1);
+
+// Tamaños
+$telefono: 400px;
+$tablet: 800px;
+$pc: 1200px;
+$xl: 1600px;
+
+// Colores
+$negro: #646464;
+$blanco: #fff;
+$azulFuerte: #253b9e;
+$azul: #4f6df1;
+$rojo: #db2727;
+$verde: #3dbd72;
+$gris: #e7e7e7;
+$plata: #f5f4f4;

@@ -1,93 +1,97 @@
 <?php
 
+require_once "Configuracion.php";
+
 class Funciones
 {
-    static function Vista($control, $accion, $variables = [])
-    {
-        $rutaVista = "Vistas/{$control}/Vista{$accion}.php";
-        if (!file_exists($rutaVista)) die("Error 404. View not found");
-        include("Vistas/Master.php");
-    }
-
-    static function VistaParcial($control, $accion, $variables = [])
-    {
-        if (empty($_SERVER['HTTP_X_REQUESTED_WITH']) || $_SERVER['HTTP_X_REQUESTED_WITH'] != "XMLHttpRequest") die("Error. Bad request");
-
-        $rutaVista = "Vistas/{$control}/{$accion}.php";
-        if (!file_exists($rutaVista)) die("Error 404. View not found");
-
-        include($rutaVista);
-    }
-
     static function Conexion()
     {
-        $variables = Instancia::Iniciar();
+        $servidor = SERVIDOR;
+        $usuario = USUARIO;
+        $contrasena = CONTRASENA;
+        $base = BASE;
 
-        $servidor = $variables->Obtener("Servidor");
-        $base = $variables->Obtener("Base");
-        $usuario = $variables->Obtener("Usuario");
-        $contrasenia = $variables->Obtener("Contrasenia");
+        $conexion = new mysqli($servidor, $usuario, $contrasena, $base);
 
-        return new mysqli($servidor, $usuario, $contrasenia, $base);
+        return $conexion;
     }
 
-    static function Pagina($control, $accion, $total, $numeroPagina = null)
+    static function Vista($control, $accion, $formulario = null, $catalogos = null)
     {
+        $vista = "Vistas/$control/Vista$accion.php";
 
-        $variables = Instancia::Iniciar();
+        if (!is_file($vista))
+            die("HTTP/1.1 404 Not Found");
 
-        $registros = $variables->Obtener("RegistroPagina");
-        $paginas = $variables->Obtener("MaximoPaginas");
+        require_once "Vistas/Master.php";
+    }
 
-        $pagina = $numeroPagina;
-        $inicio = ($pagina * $registros) - $registros;
-        $total_paginas = ceil($total / $registros);
-        $maximo_paginas = ($total_paginas > $paginas) ? $paginas : $total_paginas;
-        $mitad = ($paginas / 2);
-        $pagina_temp = (($pagina - $mitad) > 1) ? ceil($pagina - $mitad) : 1;
-        $pagina_inicial = $pagina_temp + ($maximo_paginas - 1) <= $total_paginas ? $pagina_temp : $total_paginas - ($maximo_paginas - 1);
+    static function VistaPartial($control, $accion, $formulario = null, $catalogos = null)
+    {
+        $vista = "Vistas/$control/$accion.php";
 
-        $paginacion = "";
+        if (!is_file($vista))
+            die("HTTP/1.1 404 Not Found");
 
-        if ($total_paginas > 1) {
+        require_once $vista;
+    }
 
-            $paginacion = "<ul id='pagina'>";
-
-            if ($pagina != 1) {
-                $paginacion .= "<li>";
-                $paginacion .= "<a href='/" . $variables->Obtener("Sitio") . "/$control/$accion/" . ($pagina - 1) . "'><</a>";
-                $paginacion .= "</li>";
-            }
-
-            for ($i = $pagina_inicial; $i <= $pagina_inicial + ($maximo_paginas - 1); $i++) {
-                $paginacion .= "<li>";
-                if ($pagina == $i) {
-                    $paginacion .= "<a href='/" . $variables->Obtener("Sitio") . "/$control/$accion/$i' class='pagina_activa'>$i</a>";
-                } else {
-                    $paginacion .= "<a href='/" . $variables->Obtener("Sitio") . "/$control/$accion/$i'>$i</a>";
-                }
-                $paginacion .= "</li>";
-            }
-
-            if ($pagina != $total_paginas) {
-                $paginacion .= "<li>";
-                $paginacion .= "<a href='/" . $variables->Obtener("Sitio") . "/$control/$accion/" . ($pagina + 1) . "'>></a>";
-                $paginacion .= "</li>";
-            }
-
-            $paginacion .= "</ul>";
+    static function RevisarSesion($control)
+    {
+        if ($control != "Sesion" && (!isset($_SESSION["Usuario"]) || $_SESSION["Usuario"] == null)) {
+            header("Location: " . SITIO . "/Sesion");
+            exit;
         }
 
-        $resultado = ["Paginacion" => $paginacion, "Registro" => $registros, "Inicio" => $inicio];
+        if ($control == "Sesion" && isset($_SESSION["Usuario"]) && $_SESSION["Usuario"] != null) {
+            header("Location: " . SITIO);
+            exit;
+        }
+    }
 
-        return $resultado;
+    static function Pagina($control, $accion, $total, $pagina = 1)
+    {
+        $sitio = SITIO;
+        $registros = REGISTROS;
+        $paginas = PAGINAS;
+
+        $totalPaginas = ceil($total / $registros);
+        $maximoPaginas = ($totalPaginas > $paginas) ? $paginas : $totalPaginas;
+        $mitad = ceil($paginas / 2);
+        $paginaTemp = ($pagina - $mitad) > 1 ? $pagina - $mitad : 1;
+        $paginaInicial = $paginaTemp + ($maximoPaginas - 1) <= $totalPaginas ? $paginaTemp : $totalPaginas - ($maximoPaginas - 1);
+
+        $paginacion = "<nav><ul id='ul-pagina'>";
+
+        if ($pagina != 1) {
+            $paginacion .= "<li>";
+            $paginacion .= "<a href='/$sitio/$control/$accion/" . ($pagina - 1) . "'><</a>";
+            $paginacion .= "</li>";
+        }
+
+        for ($i = $paginaInicial; $i <= $paginaInicial + ($maximoPaginas - 1); $i++) {
+            $paginacion .= "<li>";
+            if ($pagina == $i)
+                $paginacion .= "<a href='/" . SITIO . "/$control/$accion/$i' class='activa'>$i</a>";
+            else
+                $paginacion .= "<a href='/" . SITIO . "/$control/$accion/$i'>$i</a>";
+
+            $paginacion .= "</li>";
+        }
+
+        if ($pagina != $totalPaginas) {
+            $paginacion .= "<li>";
+            $paginacion .= "<a href='/" . SITIO . "/$control/$accion/" . ($pagina + 1) . "'>></a>";
+            $paginacion .= "</li>";
+        }
+
+        $paginacion .= "</ul></nav>";
+
+        return $paginacion;
     }
 
     static function Calendario($p_mes, $p_anio)
     {
-
-        $variables = Instancia::Iniciar();
-
         if ($p_mes > 12 || $p_mes < 1) {
             $mes = getdate()['mon'];
         } else {
@@ -133,6 +137,7 @@ class Funciones
         ];
 
         $mes_espanol = $meses[date("F", mktime(0, 0, 0, $mes, 10))];
-        include("Calendario.php");
+
+        require_once("Calendario.php");
     }
 }

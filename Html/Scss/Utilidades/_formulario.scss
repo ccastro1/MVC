@@ -1,0 +1,73 @@
+@use "../Base/variables" as *;
+@use "../Base/mixins" as *;
+@use "sass:color" as *;
+
+.formulario {
+    position: relative;
+}
+
+.campos {
+    margin-bottom: 10px;
+    position: relative;
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+}
+
+.invalido {
+    display: none;
+    color: $rojo;
+    font-size: 12px;
+    text-align: center;
+}
+
+.textos {
+    display: block;
+    width: 100%;
+    padding: 7px;
+    border: solid 1px adjust($color: $negro, $lightness: 40%);
+    border-radius: 5px;
+    outline: none;
+
+    &:focus {
+        border-color: $azul;
+    }
+
+    &:user-invalid {
+        border-color: $rojo;
+
+        &+.invalido {
+            display: block;
+        }
+    }
+
+    &+i {
+        position: absolute;
+    }
+}
+
+.boton-azul {
+    @include boton($azul, $blanco);
+}
+
+.boton-gris {
+    @include boton($negro, $blanco);
+}
+
+.boton-verde {
+    @include boton($verde, $blanco);
+}
+
+.boton-rojo {
+    @include boton($rojo, $blanco);
+}
+
+.contenedor-sesion .boton-azul {
+    width: 100%;
+}
+
+.error {
+    color: $rojo;
+}

@@ -1,21 +1,12 @@
 {
-  "name": "mvc",
+  "name": "portal",
   "version": "1.0.0",
-  "description": "Modelo Vista Controlador",
+  "description": "Portal para crear páginas web",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp dev"
   },
   "author": "Candelario Castro Manjarrez",
-  "license": "ISC",
-  "devDependencies": {
-    "gulp-concat": "^2.6.1",
-    "gulp-rename": "^2.0.0",
-    "glob": "^10.3.12",
-    "gulp": "^5.0.0",
-    "gulp-sass": "^5.1.0",
-    "gulp-terser": "^2.1.0",
-    "sass": "^1.75.0",
-    "sharp": "^0.33.3"
-  }
+  "license": "ISC"
 }
