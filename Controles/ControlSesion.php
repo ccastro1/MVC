@@ -30,4 +30,10 @@ class ControlSesion
 
         Funciones::Vista("Sesion", "Ingreso", $sesion);
     }
+
+    function Salir()
+    {
+        session_destroy();
+        header("Location: " . SITIO . "/Sesion");
+    }
 }

@@ -2,10 +2,8 @@
 
 require_once "Configuracion.php";
 
-class Funciones
-{
-    static function Conexion()
-    {
+class Funciones {
+    static function Conexion() {
         $servidor = SERVIDOR;
         $usuario = USUARIO;
         $contrasena = CONTRASENA;
@@ -16,8 +14,7 @@ class Funciones
         return $conexion;
     }
 
-    static function Vista($control, $accion, $formulario = null, $catalogos = null)
-    {
+    static function Vista($control, $accion, $formulario = null, $catalogos = null) {
         $vista = "Vistas/$control/Vista$accion.php";
 
         if (!is_file($vista))
@@ -26,8 +23,7 @@ class Funciones
         require_once "Vistas/Master.php";
     }
 
-    static function VistaPartial($control, $accion, $formulario = null, $catalogos = null)
-    {
+    static function VistaPartial($control, $accion, $formulario = null, $catalogos = null) {
         $vista = "Vistas/$control/$accion.php";
 
         if (!is_file($vista))
@@ -36,8 +32,7 @@ class Funciones
         require_once $vista;
     }
 
-    static function RevisarSesion($control)
-    {
+    static function RevisarSesion($control) {
         if ($control != "Sesion" && (!isset($_SESSION["Usuario"]) || $_SESSION["Usuario"] == null)) {
             header("Location: " . SITIO . "/Sesion");
             exit;
@@ -49,8 +44,7 @@ class Funciones
         }
     }
 
-    static function Pagina($control, $accion, $total, $pagina = 1)
-    {
+    static function Pagina($control, $accion, $total, $pagina = 1) {
         $sitio = SITIO;
         $registros = REGISTROS;
         $paginas = PAGINAS;
@@ -90,8 +84,7 @@ class Funciones
         return $paginacion;
     }
 
-    static function Calendario($p_mes, $p_anio)
-    {
+    static function Calendario($p_mes, $p_anio) {
         if ($p_mes > 12 || $p_mes < 1) {
             $mes = getdate()['mon'];
         } else {

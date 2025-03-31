@@ -33,7 +33,7 @@
             </table>
         </div>
         <div class="carta-pie alinear-derecha">
-            <button type="button" class="boton-azul">Boton</button>
+            <button type="button" class="boton-morado btn-modal">Boton</button>
         </div>
     </div>
     <div class="carta">

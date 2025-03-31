@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /Portal
+RewriteBase /MVC
 RewriteCond %{REQUEST_URI} ^.+$
 RewriteCond %{REQUEST_FILENAME} \.(gif|jpeg|png|js|css|swf|php|ico|txt|pdf|xml|ttf)$ [OR]
 RewriteCond %{REQUEST_FILENAME} -f [OR]

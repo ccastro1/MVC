@@ -1,6 +1,6 @@
 <?php
 
-$sitio = "http://{$_SERVER["SERVER_NAME"]}/Portal";
+$sitio = "http://{$_SERVER["SERVER_NAME"]}/MVC";
 
 # Generales
 define("SITIO", $sitio);

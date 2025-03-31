@@ -1,5 +1,6 @@
 <?php
-session_start(["Portal"]);
+session_name("Portal");
+session_start();
 
 require_once "Librerias/Funciones.php";
 

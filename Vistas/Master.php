@@ -53,25 +53,27 @@
         <?php } ?>
 
         <div class="<?= $control == "Sesion" ? "sesion" : "contenido" ?>">
-            <div class="encabezado">
-                <div class="busqueda">
-                    <form class="formulario" method="post">
-                        <input type="text" name="buscar" class="textos">
-                        <button type="submit" class="boton-buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
-                    </form>
+            <?php if ($control != "Sesion") { ?>
+                <div class="encabezado">
+                    <div class="busqueda">
+                        <form class="formulario" method="post">
+                            <input type="text" name="buscar" class="textos">
+                            <button type="submit" class="boton-buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
+                    <div class="menu-usuario">
+                        <span class="notificaciones">
+                            <i class="fa-solid fa-bell"></i>
+                            <span class="total">0</span>
+                        </span>
+                        <span class="nombre"><?= strtoupper($_SESSION["Nombre"]) ?></span>
+                        <span id="menu-usuario"><?= strtoupper(substr($_SESSION["Nombre"], 0, 1)) ?></span>
+                        <ul>
+                            <li><a href="<?= SITIO ?>/Sesion/Salir">Cerrar Sesión</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="menu-usuario">
-                    <span class="notificaciones">
-                        <i class="fa-solid fa-bell"></i>
-                        <span class="total">0</span>
-                    </span>
-                    <span class="nombre"><?= strtoupper($_SESSION["Nombre"]) ?></span>
-                    <span id="menu-usuario"><?= strtoupper(substr($_SESSION["Nombre"], 0, 1)) ?></span>
-                    <ul>
-                        <li></li>
-                    </ul>
-                </div>
-            </div>
+            <?php } ?>
 
             <?php require_once $vista; ?>
         </div>
@@ -80,6 +82,32 @@
     <footer class="pie">
         <span>Pie de Página</span>
     </footer>
+
+    <div class="bloqueo"></div>
+
+    <div class="contenedor-modal">
+        <div class="modal">
+            <div class="carta">
+                <div class="carta-encabezado">
+                    <h2>Título Modal</h2>
+                    <button type="button" class="boton-gris contorno cerrar-modal">X</button>
+                </div>
+                <div class="carta-cuerpo">
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+                </div>
+                <div class="carta-pie alinear-derecha">
+                    <button type="button" class="boton-gris contorno cerrar-modal">Cancelar</button>
+                    <button type="button" class="boton-azul">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="<?= RUTAJS ?>/Jquery.js"></script>
+    <script src="<?= RUTAJS ?>/Aplicacion.js"></script>
+    <script type="text/javascript">
+        new Aplicacion("<?= SITIO ?>", "<?= $control ?>");
+    </script>
 </body>
 
 </html>

@@ -5,6 +5,11 @@
         </div>
         <form method="post">
             <div class="carta-cuerpo">
+                <?php if ($formulario->error == 1) { ?>
+                    <div class="campos">
+                        <span class="alerta rojo"><?= $formulario->mensaje ?></span>
+                    </div>
+                <?php } ?>
                 <div class="campos">
                     <label>Usuario</label>
                     <input type="text" name="usuario" value="<?= $formulario->usuario ?>" required autofocus class="textos">
@@ -14,14 +19,10 @@
                     <label>Contraseña</label>
                     <input type="password" name="contrasena" required class="textos">
                     <span class="invalido">Este campo es obligatorio</span>
-                    <i class="fa-solid fa-circle-check"></i>                    
                 </div>
             </div>
             <div class="carta-pie alinear-derecha">
                 <button type="submit" class="boton-azul">Ingresar</button>
-                <?php if ($formulario->error == 1) { ?>
-                    <span class="error"><?= $formulario->mensaje ?></span>
-                <?php } ?>
             </div>
         </form>
     </div>

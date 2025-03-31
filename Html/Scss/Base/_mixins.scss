@@ -17,6 +17,16 @@
     &.contorno {
         background-color: $color;
         color: $fondo;
+
+        &:hover {
+            background-color: $fondo;
+            color: $color;
+            opacity: 1;
+        }
+    }
+
+    &.redondo {
+        border-radius: 50%;
     }
 }
 
