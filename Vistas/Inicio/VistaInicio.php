@@ -33,7 +33,7 @@
             </table>
         </div>
         <div class="carta-pie alinear-derecha">
-            <button type="button" class="boton-morado btn-modal">Boton</button>
+            <button type="button" class="boton-morado btn-modal">Abre Modal</button>
         </div>
     </div>
     <div class="carta">
@@ -63,7 +63,8 @@
             </span>
         </div>
         <div class="carta-cuerpo">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <?= $catalogos["Paginacion"] ?>
+            <?= $catalogos["Calendario"] ?>
         </div>
         <div class="carta-pie">
             <button type="button" class="boton-rojo"><i class="fa-regular fa-circle-check"></i> Boton</button>
@@ -77,7 +78,28 @@
             </span>
         </div>
         <div class="carta-cuerpo">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <form class="formulario">
+                <div class="campos">
+                    <label>Nombre</label>
+                    <input type="text" class="textos" name="nombre" />
+                </div>
+                <div class="campos">
+                    <label>Correo</label>
+                    <input type="email" class="textos" name="correo" />
+                </div>
+                <div class="campos">
+                    <label>Puesto</label>
+                    <input type="text" class="textos" name="puesto" />
+                </div>
+                <div class="campos">
+                    <label>Contraseña</label>
+                    <input type="password" class="textos" name="contrasena" />
+                </div>
+                <div class="campos">
+                    <label>Confirmar Contraseña</label>
+                    <input type="password" class="textos" name="confirmar" />
+                </div>
+            </form>
         </div>
         <div class="carta-pie">
             <button type="button" class="boton-rojo"><i class="fa-regular fa-circle-check"></i> Boton</button>

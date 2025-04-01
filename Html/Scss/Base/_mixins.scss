@@ -4,7 +4,7 @@
 @mixin boton($fondo, $color) {
     padding: 7px;
     border: solid 1px $fondo;
-    border-radius: 4px;
+    border-radius: 7px;
     background-color: $fondo;
     color: $color;
     box-shadow: $sombra;
@@ -35,4 +35,15 @@
     background-color: adjust($color: $colorLetra, $lightness: 25%);
     color: $blanco;
     margin-bottom: 2px;
+}
+
+@mixin columnas($total) {
+    display: grid;
+    grid-template-columns: repeat($total, 1fr);
+    gap: 10px;
+    margin-bottom: 10px;
+
+    @media (max-width: $pc) {
+        grid-template-columns: 1fr;
+    }
 }

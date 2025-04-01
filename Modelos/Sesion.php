@@ -22,7 +22,7 @@ class Sesion
                              Nombre,
                              Paterno,
                              Materno,
-                             Contrasena
+                             password Contrasena
                       FROM   usuarios
                       WHERE  usuario = ?";
 

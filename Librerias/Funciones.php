@@ -44,10 +44,11 @@ class Funciones {
         }
     }
 
-    static function Pagina($control, $accion, $total, $pagina = 1) {
+    static function Paginacion($control, $accion, $total, $pagina = 1) {
         $sitio = SITIO;
         $registros = REGISTROS;
         $paginas = PAGINAS;
+        $colorBoton = COLORBOTON;
 
         $totalPaginas = ceil($total / $registros);
         $maximoPaginas = ($totalPaginas > $paginas) ? $paginas : $totalPaginas;
@@ -55,31 +56,31 @@ class Funciones {
         $paginaTemp = ($pagina - $mitad) > 1 ? $pagina - $mitad : 1;
         $paginaInicial = $paginaTemp + ($maximoPaginas - 1) <= $totalPaginas ? $paginaTemp : $totalPaginas - ($maximoPaginas - 1);
 
-        $paginacion = "<nav><ul id='ul-pagina'>";
+        $paginacion = "<ul class='paginacion'>";
 
         if ($pagina != 1) {
             $paginacion .= "<li>";
-            $paginacion .= "<a href='/$sitio/$control/$accion/" . ($pagina - 1) . "'><</a>";
+            $paginacion .= "<a href='/$sitio/$control/$accion/" . ($pagina - 1) . "' class='$colorBoton contorno'><</a>";
             $paginacion .= "</li>";
         }
 
         for ($i = $paginaInicial; $i <= $paginaInicial + ($maximoPaginas - 1); $i++) {
             $paginacion .= "<li>";
             if ($pagina == $i)
-                $paginacion .= "<a href='/" . SITIO . "/$control/$accion/$i' class='activa'>$i</a>";
+                $paginacion .= "<a href='/" . SITIO . "/$control/$accion/$i' class='$colorBoton contorno activa'>$i</a>";
             else
-                $paginacion .= "<a href='/" . SITIO . "/$control/$accion/$i'>$i</a>";
+                $paginacion .= "<a href='/" . SITIO . "/$control/$accion/$i' class='$colorBoton contorno'>$i</a>";
 
             $paginacion .= "</li>";
         }
 
         if ($pagina != $totalPaginas) {
             $paginacion .= "<li>";
-            $paginacion .= "<a href='/" . SITIO . "/$control/$accion/" . ($pagina + 1) . "'>></a>";
+            $paginacion .= "<a href='/" . SITIO . "/$control/$accion/" . ($pagina + 1) . "' class='$colorBoton contorno'><i class='fa-solid fa-angle-right'></i></a>";
             $paginacion .= "</li>";
         }
 
-        $paginacion .= "</ul></nav>";
+        $paginacion .= "</ul>";
 
         return $paginacion;
     }
@@ -131,6 +132,10 @@ class Funciones {
 
         $mes_espanol = $meses[date("F", mktime(0, 0, 0, $mes, 10))];
 
+        ob_start();
         require_once("Calendario.php");
+        $calendario = ob_get_clean();
+
+        return $calendario;
     }
 }

@@ -14,10 +14,11 @@ define("RUTAJS", "$sitio/Html/Js");
 
 # Base de Datos
 define("SERVIDOR", "localhost");
-define("USUARIO", "portal");
-define("CONTRASENA", "DulA44Pb1XYn7iewkBlesjLmxENr3SoB");
-define("BASE", "portal");
+define("USUARIO", "dissi");
+define("CONTRASENA", "pCvQm4QMx77hXzmKlEKJ3hnJaOeW4A4FSyv7D8SJaRqMeefoSH");
+define("BASE", "dissi");
 
 # Paginación
 define("PAGINAS", "20");
 define("REGISTROS", "10");
+define("COLORBOTON", "boton-agua");

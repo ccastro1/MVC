@@ -2,8 +2,9 @@
 @use "sass:color" as *;
 
 .carta {
-    display: block;
-    min-width: $telefono;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background-color: $blanco;
     border-radius: 5px;
     box-shadow: $sombra;

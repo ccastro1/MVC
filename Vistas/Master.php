@@ -57,7 +57,7 @@
                 <div class="encabezado">
                     <div class="busqueda">
                         <form class="formulario" method="post">
-                            <input type="text" name="buscar" class="textos">
+                            <input type="text" name="buscar" class="textos" placeholder="Buscar...">
                             <button type="submit" class="boton-buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
                         </form>
                     </div>
@@ -105,8 +105,9 @@
 
     <script src="<?= RUTAJS ?>/Jquery.js"></script>
     <script src="<?= RUTAJS ?>/Aplicacion.js"></script>
+    <script src="<?= RUTAJS . "/$control.js" ?>"></script>
     <script type="text/javascript">
-        new Aplicacion("<?= SITIO ?>", "<?= $control ?>");
+        <?= "new $control('" . SITIO . "');\n" ?>
     </script>
 </body>
 

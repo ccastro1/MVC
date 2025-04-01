@@ -1,10 +1,10 @@
 "use strict";
 
 class Aplicacion {
-    constructor(ruta, control) {
+    constructor(ruta) {
         const $this = this;
-        $this.ruta = ruta;
-        $this.control = control;
+        
+        this.ruta = ruta;
 
         $(".btn-modal").on("click", function () {
             $(".bloqueo, .contenedor-modal").show();

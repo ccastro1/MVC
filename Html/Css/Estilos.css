@@ -49,7 +49,6 @@ a:visited {
   position: relative;
   gap: 15px;
   height: cal(100vh -200px);
-  margin-bottom: 5px;
 }
 
 .menu {
@@ -83,7 +82,7 @@ a:visited {
 
 .contenido {
   margin-top: 10px;
-  width: calc(99% - 200px);
+  width: calc(98% - 200px);
 }
 
 .contenido-telefono {
@@ -161,6 +160,11 @@ a:visited {
   gap: 10px;
   margin-bottom: 10px;
 }
+@media (max-width: 1200px) {
+  .columnas-2 {
+    grid-template-columns: 1fr;
+  }
+}
 
 .columnas-3 {
   display: grid;
@@ -168,12 +172,22 @@ a:visited {
   gap: 10px;
   margin-bottom: 10px;
 }
+@media (max-width: 1200px) {
+  .columnas-3 {
+    grid-template-columns: 1fr;
+  }
+}
 
 .columnas-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-bottom: 10px;
+}
+@media (max-width: 1200px) {
+  .columnas-4 {
+    grid-template-columns: 1fr;
+  }
 }
 
 .pie {
@@ -222,9 +236,27 @@ a:visited {
     top: 50%;
   }
 }
+.paginacion {
+  display: flex;
+  gap: 5px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.calendario tbody {
+  color: #42aada;
+}
+.calendario tbody td:hover,
+.calendario tbody td.actual {
+  background-color: #42aada;
+  color: #fff !important;
+  cursor: pointer;
+}
+
 .carta {
-  display: block;
-  min-width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -278,7 +310,7 @@ a:visited {
 .textos {
   display: block;
   width: 100%;
-  height: 45px;
+  height: 40px;
   padding: 7px;
   border: solid 1px #cacaca;
   border-radius: 5px;
@@ -300,7 +332,7 @@ a:visited {
 .boton-azul {
   padding: 7px;
   border: solid 1px #4f6df1;
-  border-radius: 4px;
+  border-radius: 7px;
   background-color: #4f6df1;
   color: #fff;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -325,7 +357,7 @@ a:visited {
 .boton-gris {
   padding: 7px;
   border: solid 1px #646464;
-  border-radius: 4px;
+  border-radius: 7px;
   background-color: #646464;
   color: #fff;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -350,7 +382,7 @@ a:visited {
 .boton-verde {
   padding: 7px;
   border: solid 1px #3dbd72;
-  border-radius: 4px;
+  border-radius: 7px;
   background-color: #3dbd72;
   color: #fff;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -375,7 +407,7 @@ a:visited {
 .boton-rojo {
   padding: 7px;
   border: solid 1px #db2727;
-  border-radius: 4px;
+  border-radius: 7px;
   background-color: #db2727;
   color: #fff;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -400,7 +432,7 @@ a:visited {
 .boton-morado {
   padding: 7px;
   border: solid 1px #8d2eaa;
-  border-radius: 4px;
+  border-radius: 7px;
   background-color: #8d2eaa;
   color: #fff;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
@@ -419,6 +451,31 @@ a:visited {
   opacity: 1;
 }
 .boton-morado.redondo {
+  border-radius: 50%;
+}
+
+.boton-agua {
+  padding: 7px;
+  border: solid 1px #42aada;
+  border-radius: 7px;
+  background-color: #42aada;
+  color: #fff;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.boton-agua:hover {
+  opacity: 0.8;
+}
+.boton-agua.contorno {
+  background-color: #fff;
+  color: #42aada;
+}
+.boton-agua.contorno:hover {
+  background-color: #42aada;
+  color: #fff;
+  opacity: 1;
+}
+.boton-agua.redondo {
   border-radius: 50%;
 }
 
